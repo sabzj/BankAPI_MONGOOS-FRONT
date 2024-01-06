@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import UserDetails from "./components/UserDetails";
-import TransActions from "./components/TransActions";
+import Transactions from "./components/Transactions";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import { BankProvider } from "./context/BankContext";
@@ -14,7 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/transactions" element={<TransActions />} />
+          <Route path="/transactions" element={<Transactions />} />
           <Route path="/userDetails" element={<UserDetails />} />
         </Routes>
       </BankProvider>
