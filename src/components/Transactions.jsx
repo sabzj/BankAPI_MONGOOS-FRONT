@@ -1,7 +1,14 @@
 import React from "react";
+import TransactionForm from "./Transaction/TransactionForm";
+import DepositeCashForm from "./depositeCashForm/DepositeCashForm";
 
 const Transactions = () => {
-  return <div>Transactions</div>;
+  return (
+    <>
+      <TransactionForm />
+      <DepositeCashForm />
+    </>
+  );
 };
 
 export default Transactions;

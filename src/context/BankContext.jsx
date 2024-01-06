@@ -123,12 +123,13 @@ export const BankProvider = ({ children }) => {
           body: JSON.stringify({ cash }),
         }
       );
+      fetchAllUsers(); // Update the user list after the money transaction
 
-      if (response.ok) {
-        fetchAllUsers(); // Update the user list after the money transaction
-      } else {
-        console.error("Error transacting money:", response.statusText);
-      }
+      // if (response.ok) {
+      //   fetchAllUsers(); // Update the user list after the money transaction
+      // } else {
+      //   console.error("Error transacting money:", response.statusText);
+      // }
     } catch (error) {
       console.error("Error transacting money:", error);
     }
