@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useBankContext } from "../context/BankContext";
+import UserTable from "./userTable/UserTable";
 
 const Home = () => {
   const { fetchAllUsers, users } = useBankContext();
@@ -10,6 +11,7 @@ const Home = () => {
       {users.map((user) => (
         <p key={user._id}>{user.fullName} </p>
       ))}
+      <UserTable />
     </>
   );
 };

@@ -57,15 +57,10 @@ export const BankProvider = ({ children }) => {
 
   const deleteUser = async (userId) => {
     try {
-      const response = await fetch(`${BASE_url}/${userId}`, {
+      const response = await fetch(`${BASE_url}${userId}`, {
         method: "DELETE",
       });
-
-      if (response.ok) {
-        fetchAllUsers(); // Update the user list after deleting a user
-      } else {
-        console.error("Error deleting user:", response.statusText);
-      }
+      fetchAllUsers(); // Update the user list after deleting a user
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -73,7 +68,7 @@ export const BankProvider = ({ children }) => {
 
   const depositMoney = async (userId, cash) => {
     try {
-      const response = await fetch(`${BASE_url}/${userId}/deposit`, {
+      const response = await fetch(`${BASE_url}${userId}/deposit`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +88,7 @@ export const BankProvider = ({ children }) => {
 
   const updateUserCredit = async (userId, credit) => {
     try {
-      const response = await fetch(`${BASE_url}/${userId}/credit`, {
+      const response = await fetch(`${BASE_url}${userId}/credit`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +109,7 @@ export const BankProvider = ({ children }) => {
   const transactMoney = async (fromUserId, toUserId, cash) => {
     try {
       const response = await fetch(
-        `${BASE_url}/${fromUserId}/transact/${toUserId}`,
+        `${BASE_url}${fromUserId}/transact/${toUserId}`,
         {
           method: "PATCH",
           headers: {
@@ -137,7 +132,7 @@ export const BankProvider = ({ children }) => {
 
   const updateUserStatus = async (userId, isActive) => {
     try {
-      const response = await fetch(`${BASE_url}/${userId}/active`, {
+      const response = await fetch(`${BASE_url}${userId}/active`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +152,7 @@ export const BankProvider = ({ children }) => {
 
   const filterByAmountOfCash = async (amount, isGreaterThan, andEqual) => {
     try {
-      const response = await fetch(`${BASE_url}/${amount}`, {
+      const response = await fetch(`${BASE_url}${amount}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
